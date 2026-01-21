@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-deploy-copy",
   "type": "module",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A Vite plugin to copy build output to a specific destination with safety checks.",
   "repository": {
     "type": "git",
