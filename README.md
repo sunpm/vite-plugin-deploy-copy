@@ -52,7 +52,6 @@ export default defineConfig({
 ### `PluginOptions`
 
 | Option | Type | Description |
-|Path | Type | Description |
 |---|---|---|
 | `targets` | `Target[]` | Array of copy targets. |
 
