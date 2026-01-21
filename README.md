@@ -1,6 +1,8 @@
 # vite-plugin-deploy-copy
 
-A Vite plugin to safely copy build artifacts to a deployment directory.  
+[🇺🇸 English](./README.md) | [🇨🇳 中文文档](./README_CN.md)
+
+A Vite plugin to safely copy build artifacts to a deployment directory.
 Typically used when your frontend project is part of a larger monorepo or backend framework (e.g., Laravel, Rails, Django) and needs to deploy built assets to a public directory outside the Vite root.
 
 ## Features
@@ -27,7 +29,6 @@ Register the plugin in your `vite.config.ts`:
 ```typescript
 import { defineConfig } from 'vite';
 import deployCopy from 'vite-plugin-deploy-copy';
-import path from 'path';
 
 export default defineConfig({
   plugins: [
@@ -39,7 +40,7 @@ export default defineConfig({
           // Destination directory
           dest: '../public/assets', 
           // Optional: Files/Folders to preserve in destination
-          preserve: ['.gitkeep', 'logo.png'] 
+          preserve: ['.git', '.gitignore'] 
         }
       ]
     })
