@@ -1,6 +1,7 @@
 {
   "name": "vite-plugin-deploy-copy",
   "type": "module",
+  "packageManager": "pnpm@9.15.4",
   "version": "1.2.2",
   "description": "A Vite plugin to copy build output to a specific destination with safety checks.",
   "repository": {

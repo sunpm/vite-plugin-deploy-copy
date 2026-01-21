@@ -140,3 +140,8 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Playground
+playground/node_modules
+playground/dist
+playground/deploy-result

@@ -45,17 +45,17 @@ export default function deployCopy(options: PluginOptions): Plugin {
                 const destPath = path.isAbsolute(dest) ? dest : path.resolve(cwd, dest);
 
                 if (!fs.existsSync(srcPath)) {
-                    console.warn(pc.yellow(`[deploy-copy] Source directory ${srcPath} does not exist. Skipping.`));
+                    console.warn(pc.yellow(`[deploy-copy] Source directory `) + pc.bold(srcPath) + pc.yellow(` does not exist. Skipping.`));
                     return;
                 }
 
                 // Ensure destination exists
                 if (!fs.existsSync(destPath)) {
-                    console.log(pc.dim(`[deploy-copy] Destination ${destPath} does not exist. Creating...`));
+                    console.log(pc.dim(`[deploy-copy] Destination `) + pc.bold(destPath) + pc.dim(` does not exist. Creating...`));
                     fs.mkdirSync(destPath, { recursive: true });
                 }
 
-                console.log(pc.cyan(`[deploy-copy] Copying from ${srcPath} to ${destPath}...`));
+                console.log(pc.cyan(`[deploy-copy] Copying from `) + pc.bold(srcPath) + pc.cyan(` to `) + pc.bold(destPath) + pc.cyan(`...`));
 
                 // Clean destination (safely)
                 if (fs.existsSync(destPath)) {
@@ -71,7 +71,7 @@ export default function deployCopy(options: PluginOptions): Plugin {
 
                 // Copy files
                 fs.cpSync(srcPath, destPath, { recursive: true });
-                console.log(pc.green(`[deploy-copy] Success: ${srcPath} -> ${destPath}`));
+                console.log(pc.green(`[deploy-copy] Success: `) + pc.bold(srcPath) + pc.green(` -> `) + pc.bold(destPath));
             });
         },
     };
