@@ -26,12 +26,12 @@ Register the plugin in your `vite.config.ts`:
 
 ```typescript
 import { defineConfig } from 'vite';
-import copyBuildOutput from 'vite-plugin-deploy-copy';
+import deployCopy from 'vite-plugin-deploy-copy';
 import path from 'path';
 
 export default defineConfig({
   plugins: [
-    copyBuildOutput({
+    deployCopy({
       targets: [
         {
           // Source directory (usually your 'dist' folder)
@@ -64,22 +64,6 @@ export default defineConfig({
 | `dest` | `string` | **Required** | Destination directory path (relative to `process.cwd()` or absolute). |
 | `preserve` | `string[]` | `[]` | List of filenames/folders in `dest` to preserve during cleanup. |
 
-## Development
-
-```bash
-# Install dependencies
-npm install
-
-# Build the plugin
-npm run build
-
-# Lint code
-npm run lint
-
-# Release (Manual)
-npm run release
-```
-
 ## License
 
-ISC
+MIT

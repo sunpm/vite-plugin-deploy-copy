@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import type { Plugin } from 'vite';
+import pc from 'picocolors';
 
 export interface Target {
     /**
@@ -29,9 +30,9 @@ export interface PluginOptions {
 /**
  * Custom plugin to copy build output to specific destinations
  */
-export default function copyBuildOutput(options: PluginOptions): Plugin {
+export default function deployCopy(options: PluginOptions): Plugin {
     return {
-        name: 'copy-build-output',
+        name: 'vite-plugin-deploy-copy',
         closeBundle() {
             const targets = options.targets || [];
 
@@ -44,17 +45,17 @@ export default function copyBuildOutput(options: PluginOptions): Plugin {
                 const destPath = path.isAbsolute(dest) ? dest : path.resolve(cwd, dest);
 
                 if (!fs.existsSync(srcPath)) {
-                    console.warn(`[copy-build-output] Source directory ${srcPath} does not exist. Skipping.`);
+                    console.warn(pc.yellow(`[deploy-copy] Source directory ${srcPath} does not exist. Skipping.`));
                     return;
                 }
 
                 // Ensure destination exists
                 if (!fs.existsSync(destPath)) {
-                    console.log(`[copy-build-output] Destination ${destPath} does not exist. Creating...`);
+                    console.log(pc.dim(`[deploy-copy] Destination ${destPath} does not exist. Creating...`));
                     fs.mkdirSync(destPath, { recursive: true });
                 }
 
-                console.log(`[copy-build-output] Copying from ${srcPath} to ${destPath}...`);
+                console.log(pc.cyan(`[deploy-copy] Copying from ${srcPath} to ${destPath}...`));
 
                 // Clean destination (safely)
                 if (fs.existsSync(destPath)) {
@@ -70,7 +71,7 @@ export default function copyBuildOutput(options: PluginOptions): Plugin {
 
                 // Copy files
                 fs.cpSync(srcPath, destPath, { recursive: true });
-                console.log(`[copy-build-output] Success: ${srcPath} -> ${destPath}`);
+                console.log(pc.green(`[deploy-copy] Success: ${srcPath} -> ${destPath}`));
             });
         },
     };
