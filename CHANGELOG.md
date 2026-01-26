@@ -1,5 +1,12 @@
 
 
+# [1.4.0](https://github.com/sunpm/vite-plugin-deploy-copy/compare/v1.3.0...v1.4.0) (2026-01-26)
+
+
+### Features
+
+* 将插件核心逻辑异步化并引入 Vitest 单元测试 ([46e6350](https://github.com/sunpm/vite-plugin-deploy-copy/commit/46e635061b8687919e183cf2e19da40d0b4e691a))
+
 # [1.3.0](https://github.com/sunpm/vite-plugin-deploy-copy/compare/v1.2.2...v1.3.0) (2026-01-21)
 
 
